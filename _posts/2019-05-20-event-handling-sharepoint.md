@@ -18,16 +18,16 @@ Power: **High** . You can do anything that can be expressed in code.
 
 Effort: **High**. You need to write code, and you also need to host your code in an internet-callable WCF service.
 
-Scalability: **High**. You can programmatically attach reote event receivers. You can add them to PnP provisioning templates. You can use the same endpoint to serve thousands of different instances.
+Scalability: **High**. You can programmatically attach remote event receivers. You can add them to PnP provisioning templates. You can use the same endpoint to serve thousands of different instances.
 
 Trigger Options: **High**. As mentioned above you have many trigger options at your disposal, both synchronous and asynchronous.
 
 ------------------------------------
 
 ## SharePoint WebHooks
-WebHooks were introduced with much hype and promised to simplify the experience developers were having with WCF-based Remote Event Receivers, being more amenable to modern develpoment patterns such as REST.  Enthusiasm for SharePoint WebHooks has waned, at least in my estimation, when their deficiencies bacame evident.
+Webhooks were introduced with much hype and promised to simplify the experience developers were having with WCF-based Remote Event Receivers, being more amenable to modern develpoment patterns such as REST.  Enthusiasm for SharePoint WebHooks has waned, at least in my estimation, when their deficiencies became evident.
 
-In theory, setting up a WebHook seems pretty straightforward. Create a subscription on a resource, configuring an endpoint, and then coding that endpoint to handle the incoming notifications.
+In theory, setting up a webhook seems pretty straightforward. Create a subscription on a resource, configuring an endpoint, and then coding that endpoint to handle the incoming notifications.
 
 Webhooks launched with support for asynchronous list item events, and to this day that is all they support. Also, maddeningly, webhook subscriptions expire, and the maximum allowable duration is 180 days. So any implementation of webhooks would have the additional overhead of checking for exipiration, and re-registering the webhook if necessary. The one project I worked on that used webhooks actually made this re-registration every single time it was invoked, I mean because why not? 
 
@@ -57,7 +57,7 @@ Trigger Options: **Medium**. Flow's SharePoint triggers are mostly item-based, b
 ---
 
 ## Timer Jobs
-Not really a pure event-handling scenario, but you can poll for changes and take action when a change is doscovered. This is more of a "pull" approach rather then the "push" the other options feature. You might find this useful for events that are not explicitly suported by the official means. For example:
+Not really a pure event-handling scenario, but you can poll for changes and take action when a change is discovered. This is more of a "pull" approach rather then the "push" the other options feature. You might find this useful for events that are not explicitly suported by the official means. For example:
 1. When a site collection is created
 2. When something changes in the term store
 3. Anything else you want to support
@@ -94,7 +94,7 @@ Trigger Options: **Low**. You can author workflows to un against items in lists 
 ## My Recommendation
 If I had a new requirement to respond to an event today, my recommendation would depend on a couple of questions: Do I need to handle an event in one place or in many places? What is the event I'm trying to capture?
 
-If I needed to be able to handle events in may places - for example, thousands or team sites - then I would write a remote event receiver. If the logic was sufficiently complex, I'd use the RER to drop an item on an Azure Queue and let a WebJob do the actual processing. WebJobs give us a degree of fault tolerance and scale that web endpoints just don't have, so that's why I'd add that extra layer if it made sense to do so.
+If I needed to be able to handle events in may places - for example, thousands of team sites - then I would write a remote event receiver. If the logic was sufficiently complex, I'd use the RER to drop an item on an Azure Queue and let a WebJob do the actual processing. WebJobs give us a degree of fault tolerance and scale that web endpoints just don't have, so that's why I'd add that extra layer if it made sense to do so.
 
 If I had a one-off situation and Flow could handle the trigger I'd probably write a Flow to consume the event. If the logic was easily doable in Flow I would just implement the whole thing in Flow. If it were more complex, again, I'd use the Flow to drop an item onto an Azure Queue and let the WebJob do its thing.
 
