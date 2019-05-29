@@ -7,7 +7,7 @@ I came across a very strange issue this week trying to locally debug TypeScript 
 
 ![screenshot](/images/vscode-funcs/console.png "Console Screen shot")
 
-At first I thought it was an environmental issue, so I set up a clean new dev environment in an Azure VM, installed the latest versions of everything, and got the same error. What was even more frustrating was that the Microsoft documentations talks about how easy all this was.
+At first I thought it was an environmental issue, so I set up a clean new dev environment in an Azure VM, installed the latest versions of everything, and got the same error. What was even more frustrating was that the Microsoft documentation talks about how easy all this was.
 
 Note that this terminal is opened when you initiate a debugging session, and it doesn't offer a prompt to cd into the correct directory.
 
