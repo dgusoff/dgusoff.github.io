@@ -23,7 +23,7 @@ I was able to get my Azure Function to debug locally by removing that CD command
 
 ## The fix
 
-This is not ideal for me, bacause I do love my PowerShell, but the solution I came up with was to set the default shell at the project level to use Git Bash. You could probably also get away with setting cmd.exe.
+This is not ideal for me, because I do love my PowerShell, but the solution I came up with was to set the default shell at the project level to use Git Bash. You could probably also get away with setting cmd.exe.
 
 Each VS Code project has a local file called settings.json. If you add the following line to settings.json it'll use Git Bash as the default shell, and the PowerShell profile scripts will be irrelevant.
 
