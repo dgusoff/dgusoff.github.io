@@ -13,9 +13,8 @@ Multi-Geo is set up so that there will be a main tenant, called a "Central Locat
 
 Multi-Geo is enabled at a user level, and each user can be configured to have their data stored in the desired location. You can set this up like this:
 
-```powershell
-Get-MsolUser -UserPrincipalName dgusoff-eu@dexkoglobal.onmicrosoft.com | Set-MsolUser PreferredDataLocation 'EU'
-```
+`Get-MsolUser -UserPrincipalName dgusoff-eu@dexkoglobal.onmicrosoft.com | Set-MsolUser PreferredDataLocation 'EU'`
+
 Another offshoot of the user's configured location is that teams and sites created by the user will be housed automatically in the appropriate location, even if initiated from a different location.
 
 ## Implications on Search
