@@ -7,7 +7,7 @@ I recently had a client enable Multi-Geo functionality in SharePoint Online in o
 
 ## What's Multi-Geo?
 
-Multi-Geo is a licensing feature of SharePoint that allows organizations to split its SharePoint Online tenant into distict logical units with data stored in different geographic regions. This is often done in order to comply with regulations like [GPDR](https://en.wikipedia.org/wiki/General_Data_Protection_Regulation).
+Multi-Geo is a licensing feature of SharePoint that allows organizations to split its SharePoint Online tenant into distict logical units with data stored in different geographic regions. This is often done in order to comply with regulations like [GDPR](https://en.wikipedia.org/wiki/General_Data_Protection_Regulation).
 
 Multi-Geo is set up so that there will be a main tenant, called a "Central Location", and auxiliary tenants called "Satellite Locations". In many ways the satellite locations look and behave like discrete tenants. They will have different admin portals and different domain names in the site URLs. They have separate settings for search schema and app catalog. They also seem to subscribe to separate content type hubs, although they share a common taxonomy.
 
