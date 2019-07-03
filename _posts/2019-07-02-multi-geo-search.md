@@ -29,7 +29,7 @@ Search Results Web Parts will not find data from other geo locations by default,
 
 ## REST API Search queries
 
-Calls to the Search REST API will not pull results frpm other locations by default, but they can be configured to do so by adding the appropriate parameters to the query string of a GET request, or to the body of a POST request. The REST approach affers more flexibility in that it supports querying a subset of the locations if you'd like.
+Calls to the Search REST API will not pull results from other locations by default, but they can be configured to do so by adding the appropriate parameters to the query string of a GET request, or to the body of a POST request. The REST approach affers more flexibility in that it supports querying a subset of the locations if you'd like.
 
 ### non-geo-aware query
 
