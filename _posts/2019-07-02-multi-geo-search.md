@@ -11,7 +11,7 @@ Multi-Geo is a licensing feature of SharePoint that allows organizations to spli
 
 Multi-Geo is set up so that there will be a main tenant, called a "Central Location", and auxiliary tenants called "Satellite Locations". In many ways the satellite locations look and behave like discrete tenants. They will have different admin portals and different domain names in the site URLs. They have separate settings for search schema and app catalog. They also seem to subscribe to separate content type hubs, although they share a common taxonomy.
 
-Multi-Geo is enabled at a user level, and each user can be configured to have their data stored in the desired location. You can set this up like this:
+Multi-Geo is enabled at a user level, and each user can be configured to have their data stored in the desired location. You can set it up like this:
 
 `Get-MsolUser -UserPrincipalName dgusoff-eu@dexkoglobal.onmicrosoft.com | Set-MsolUser PreferredDataLocation 'EU'`
 
