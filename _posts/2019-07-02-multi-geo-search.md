@@ -13,9 +13,9 @@ Multi-Geo is set up so that there will be a main tenant, called a "Central Locat
 
 Multi-Geo is enabled at a user level, and each user can be configured to have their data stored in the desired location. You can set this up like this:
 
-````powershell
+```powershell
 Get-MsolUser -UserPrincipalName dgusoff-eu@dexkoglobal.onmicrosoft.com | Set-MsolUser PreferredDataLocation 'EU'
-````
+```
 Another offshoot of the user's configured location is that teams and sites created by the user will be housed automatically in the appropriate location, even if initiated from a different location.
 
 ## Implications on Search
@@ -33,15 +33,15 @@ Calls to the Search REST API will not pull results from other locations by defau
 
 ### non-geo-aware query
 
-````http
+```http
 /_api/search/query?querytext='sharepoint'
-````
+```
 
 ### REST query with multi-geo support
 
-````http
+```http
 /_api/search/query?querytext='sharepoint'&Properties='EnableMultiGeoSearch:true'&ClientType='my_client_id'
-````
+```
 
 
 The ClientType parameter is a means of identifying different applications and its value can be literally any valid parameter string. You cannot omit it however and still get multi-geo results.
@@ -51,9 +51,9 @@ The ClientType parameter is a means of identifying different applications and it
 
 You can specify a subset of geo locations in your queries by adding a JSON object into your query URL. I haven't done this since "my" tenant only contains two locations, but here's the syntax. You can read more on this [here](https://docs.microsoft.com/en-us/office365/enterprise/configure-search-for-multi-geo).
 
-````http
+```http
 /_api/search/query?querytext='site'&ClientType='my_client_id'&Properties='EnableMultiGeoSearch:true, MultiGeoSearchConfiguration:[{DataLocation\:"NAM"\,Endpoint\:"https\://contosoNAM.sharepoint.com"\,SourceId\:"B81EAB55-3140-4312-B0F4-9459D1B4FFEE"}\,{DataLocation\:"CAN"\,Endpoint\:"https\://contosoCAN.sharepoint-df.com"}]'
-````
+```
 
 ## Other configurations to be aware of
 
