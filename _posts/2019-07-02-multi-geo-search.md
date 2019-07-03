@@ -46,7 +46,7 @@ The ClientType parameter is a means of identifying different applications and it
 
 ### Fetching a subset of locations
 
-You can specify a subset of geo locations in your queries by adding a JSON object into your query URL. I haven't done this since "my" tenant only contains two locations, but here's the syntax. You can read more on this [here](https://docs.microsoft.com/en-us/office365/enterprise/configure-search-for-multi-geo).
+You can specify a subset of geo locations in your search queries by adding a JSON object into your query URL. I haven't done this since "my" tenant only contains two locations, but here's the syntax. You can read more on this [here](https://docs.microsoft.com/en-us/office365/enterprise/configure-search-for-multi-geo).
 
 `/_api/search/query?querytext='site'&ClientType='my_client_id'&Properties='EnableMultiGeoSearch:true, MultiGeoSearchConfiguration:[{DataLocation\:"NAM"\,Endpoint\:"https\://contosoNAM.sharepoint.com"\,SourceId\:"B81EAB55-3140-4312-B0F4-9459D1B4FFEE"}\,{DataLocation\:"CAN"\,Endpoint\:"https\://contosoCAN.sharepoint-df.com"}]'`
 
