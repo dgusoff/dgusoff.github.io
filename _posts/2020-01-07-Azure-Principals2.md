@@ -26,7 +26,7 @@ I'll be using Visual Studio code and the [REST Client](https://marketplace.visua
 
 Our first request will be a POST to the 
 
-````
+````HTTP
 POST https://login.microsoftonline.com/<tenant-guid>/oauth2/token
 Content-Type: application/x-www-form-urlencoded
 
@@ -43,7 +43,7 @@ You'll see the response includes the token along with some information about the
 
 If we've obtained an access token, we can use that to authenticate against the Azure REST API. In my example I'll query for a list of Resource Groups. My call will look like this:
 
-````
+````HTTP
 GET https://management.azure.com/subscriptions/<subscription-guid>/resourcegroups?api-version=2019-08-01
 Authorization: Bearer <access_token>
 ````
@@ -71,7 +71,7 @@ To get started, create a .NET Core Console Application and add the `Microsoft.Az
 ````
 The JSON file contains a representation of the principal and subscription data, in the format:
 
-````
+````JSON
 {
   "clientId": "b52dd125-9272-4b21-9862-0be667bdf6dc",
   "clientSecret": "ebc6e170-72b2-4b6f-9de2-99410964d2d0",
