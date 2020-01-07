@@ -60,4 +60,4 @@ Navigate to the asset in question and click Access Control (IAM). Click Add a Ro
 
 We can use the Role Assignments tab to review existing role assignments on that resource, and modify and remove as needed.
 
-In this post we reviewed Azure Service Principals and Role Assignments, created them using the Azure Portal. In part 2 I'll explore some ways we can use this principal to programmatically interact with Azure.
+In this post we reviewed Azure Service Principals and Role Assignments, created them using the Azure Portal. In [part 2](https://dgusoff.github.io/Azure-Principals2/) I'll explore some ways we can use this principal to programmatically interact with Azure.
