@@ -3,6 +3,57 @@ layout: post
 title: Connect to an AAD Secured web API from SharePoint Framework
 ---
 
+It shouldn't have to be this hard. I've had to consume Azure AD-secured API's from SharePoint Framework web parts a couple of times now, and each time I do it I seem to stumble on the security configuration.
+
+There are a number of blog posts out there on how to do this. AC has one, Waldek has one, Sahil Malik has one, and even C# Corner has one. But if you read carefully, all of these have subtle but significant differences between key details, and I wasn't able to get functional with any of these. Why the differences? Maybe the infrastructure has changed over time. Maybe the bloggers' implementations differ in key ways. It doesn't matter though. I'll share what has worked for me. Maybe it'll work for you, or more importantly, maybe it'll work for future me.
+
+I see this as a two-part series. In the first, I focus solely on getting the API secured. In the second part I'll hook this up to a SharePoint Framework web part. In my example I'll be using a Node-powered Function app, but the approach I take here will work for Function Apps in any language, and for Web APIs deployed as App Services.
+
+## Assumptions
+
+This won't be a beginner's guide. I'm going to assume you know how to create HTTP-triggered Azure Functions in a language of your choice. I also assume you know the rudiments of creating an Azure AD App registration but not necessarily all the nuances. You should have an Azure subscription and an Azure AD behind a SharePoint tenant, although I do not assume the AAD and subscription are in the same tenant. For Part Two you should know how to build and deploy a SharePoint Framework Web Part.
+
+## High level steps
+
+In Part One I'll cover the basics of creating the Azure AD app registration, and then use it to configure the security of an existing Function App.
+
+
+## Create the Azure AD App Registration
+
+For some context on what we're going to do here, read this: https://docs.microsoft.com/en-us/azure/app-service/configure-authentication-provider-aad#-configure-with-advanced-settings
+
+
+
+In the Azure AD instance backing your SharePoint tenant, create a new app registration. Set it up to be single tenant.
+
+xxx screen shot xxxx
+
+Take note of the Client ID and the Tenant ID of your Azure AD. Next, add a redirect URI of the URL of the existing Function app.
+
+xxx screen shot xxx 
+
+
+xxx screen shot xxx
+
+That's it as far as setting up the Azure AD application - for now. Next let's use the app to secure our API.
+
+## Secure the API
+
+On our Function App, first make sure your functions are set up with an authorization level of "anonymous". Then under "platform features" click the "Authentication/Authorization" link.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 A while back I had a requirement to connect to an Azure AD-secured API (Azure Function) from a SharePoint Framework web part, and I found it to be difficult and a little frustrating to get it working. There just seemed to be a lot of points that were non-obvious and a little "magical", at least to me, but I was able to figure it out. I started a blog post on this topic, because I knew thie requirement would come around again, and I didn't want to incur that learning tax again, but I never got around to finishing the post.
 
