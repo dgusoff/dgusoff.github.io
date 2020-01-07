@@ -1,3 +1,8 @@
+---
+layout: post
+title: Working with Service Princpals in Azure, Part 2
+---
+
 In [part 1](https://dgusoff.github.io/azure-principals-1/) of this blog I discussed Service Principals and Role Assignments in Azure and walked through how to set them up. In this blog we'll put the concepts to work by creating a couple of simple integrations against Azure.
 
 ## Part 1 recap
