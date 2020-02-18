@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Another reason to hate SharePoint: 
+title: Another reason to hate SharePoint
 ---
 
 
