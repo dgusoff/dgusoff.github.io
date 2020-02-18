@@ -16,7 +16,7 @@ But it was half-assed, probably because it was an afterthought. Microsoft put a 
 
 This has downstream after-effects: it copies all metadata from the source page, ignoring default values. Which wouldn't be so bad, except for calculated default values, because those will propagate the values calculated from the template page instance.
 
-In my example I had an Expiration field which was supposed to default to one year from today (**=TODAY+365** in calculated field lingo). I can provision this field from schema, and the default setting works great, except when I use a page template.
+In my example I had an Expiration field which was supposed to default to one year from today (**=TODAY+365** in calculated field lingo). I can provision this field from schema, and the default setting works great, except when I use a page template. With a page template it uses the creation date of the template file, so the dates are always off.
 
 Is this really a big deal? No, I suppose not. It's inconsistent, but anyone who works with SharePoint knows that the only thing consistent is inconsistency.  We can work around this and come up with a manageable solution to the requirement. But I shouldn't have to. Default settings should "just work" and page templates shouldn't break other supported functionality.
 
